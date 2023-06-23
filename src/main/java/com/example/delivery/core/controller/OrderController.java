@@ -66,6 +66,11 @@ public class OrderController {
         orderService.sendOrder(id);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+    @PutMapping ("/finish/{id}")
+    public ResponseEntity<HttpStatus> finishOrder(@PathVariable Long id){
+        orderService.finishOrder(id);
+        return ResponseEntity.status(HttpStatus.OK).build();
+    }
     @PutMapping ("/cancel/{id}")
     public ResponseEntity<HttpStatus> cancelOrder(@PathVariable Long id){
         orderService.cancelOrder(id);

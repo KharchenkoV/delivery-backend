@@ -14,6 +14,7 @@ public interface OrderService {
     void cancelOrder(Long orderId);
     void acceptOrder(Long orderId);
     void sendOrder(Long orderId);
+    void finishOrder(Long orderId);
     void payOrder(Long orderId);
     OrderDto loadOrderById(Long orderId);
     List<OrderDto> getNewOrders();

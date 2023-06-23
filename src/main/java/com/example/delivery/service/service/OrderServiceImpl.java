@@ -115,6 +115,14 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public void finishOrder(Long orderId) {
+        Order order = getOrderById(orderId);
+        order.setStatus(OrderStatus.CLOSED);
+        order.setUpdated(LocalDateTime.now());
+        orderRepository.save(order);
+    }
+
+    @Override
     public void payOrder(Long orderId) {
         Order order = getOrderById(orderId);
         order.setPaymentStatus(PaymentStatus.PAID);
